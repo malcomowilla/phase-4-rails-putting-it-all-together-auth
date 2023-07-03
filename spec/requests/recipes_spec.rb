@@ -172,3 +172,78 @@ RSpec.describe "Recipes", type: :request do
   end
   
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# RSpec.describe "Recipes", type: :request do
+#   describe "GET /recipes" do
+#     context "with a logged in user" do
+#       let!(:user) { User.create(username: "test_user", password: "sup3r-secret") }
+#       let!(:recipe1) { Recipe.create(title: "Recipe 1", instructions: "Instructions 1", minutes_to_complete: 30, user: user) }
+#       let!(:recipe2) { Recipe.create(title: "Recipe 2", instructions: "Instructions 2", minutes_to_complete: 45, user: user) }
+
+#       it "returns an array of recipes with their associated users" do
+#         post "/login", params: { username: user.username, password: user.password }
+#         get "/recipes"
+
+#         expect(response.body).to include_json([
+#           {
+#             id: recipe1.id,
+#             title: recipe1.title,
+#             instructions: recipe1.instructions,
+#             minutes_to_complete: recipe1.minutes_to_complete,
+#             user: {
+#               id: user.id,
+#               username: user.username,
+#               image_url: user.image_url,
+#               bio: user.bio
+#             }
+#           },
+#           {
+#             id: recipe2.id,
+#             title: recipe2.title,
+#             instructions: recipe2.instructions,
+#             minutes_to_complete: recipe2.minutes_to_complete,
+#             user: {
+#               id: user.id,
+#               username: user.username,
+#               image_url: user.image_url,
+#               bio: user.bio
+#             }
+#           }
+#         ])
+#       end
+#     end
+
+#     context "with no logged in user" do
+#       it "returns an array of error messages in the body" do
+#         get "/recipes"
+
+#         expect(response.body).to include_json({
+#           errors: a_kind_of(Array)
+#         })
+#       end
+
+#       it "returns a 401 (Unauthorized) HTTP status code" do
+#         get "/recipes"
+
+#         expect(response).to have_http_status(:unauthorized)
+#       end
+#     end
+#   end
+
+#   # Other tests for POST /recipes can be added here
+# end
